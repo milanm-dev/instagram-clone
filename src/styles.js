@@ -523,6 +523,7 @@ export const useFeedPostStyles = makeStyles((theme) => ({
     gridTemplateColumns: "24px 24px 24px minmax(24px, auto)",
     gridGap: 16,
     padding: "6px 0px !important",
+    // cursor: "pointer",
   },
   postButtonsWrapper: {
     padding: "0px 16px 8px !important",

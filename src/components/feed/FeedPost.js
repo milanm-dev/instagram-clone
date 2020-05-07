@@ -1,7 +1,15 @@
 import React from "react";
 import { useFeedPostStyles } from "../../styles";
 import UserCard from "../shared/UserCard";
-import { MoreIcon, CommentIcon, ShareIcon } from "../../icons";
+import {
+  MoreIcon,
+  CommentIcon,
+  ShareIcon,
+  LikeIcon,
+  UnlikeIcon,
+  RemoveIcon,
+  SaveIcon,
+} from "../../icons";
 import { Link } from "react-router-dom";
 import { Typography, Button, Hidden, Divider } from "@material-ui/core";
 import HTMLEllipsis from "react-lines-ellipsis/lib/html";
@@ -16,7 +24,7 @@ function FeedPost({ post }) {
       <article className={classes.article}>
         {/* FeedPost Header */}
         <div className={classes.postHeader}>
-          <UserCard />
+          <UserCard user={user} />
           <MoreIcon className={classes.moreIcon} />
         </div>
         {/* Feed Post Image */}
@@ -110,15 +118,59 @@ function FeedPost({ post }) {
 }
 
 function LikeButton() {
-  return <>LikeButton</>;
+  const classes = useFeedPostStyles();
+  const [liked, setLiked] = React.useState(false);
+
+  const Icon = liked ? UnlikeIcon : LikeIcon;
+  const className = liked ? classes.liked : classes.like;
+  const onClick = liked ? handleUnlike : handleLike;
+
+  function handleLike() {
+    console.log("like");
+    setLiked(true);
+  }
+
+  function handleUnlike() {
+    console.log("unlike");
+    setLiked(false);
+  }
+
+  return <Icon onClick={onClick} className={className} />;
 }
 
 function SaveButton() {
-  return <>SaveButton</>;
+  const classes = useFeedPostStyles();
+  const [saved, setSaved] = React.useState(false);
+
+  const Icon = saved ? RemoveIcon : SaveIcon;
+  const onClick = saved ? handleRemove : handleSave;
+
+  function handleSave() {
+    console.log("saved");
+    setSaved(true);
+  }
+
+  function handleRemove() {
+    console.log("removed");
+    setSaved(false);
+  }
+
+  return <Icon className={classes.saveIcon} onClick={onClick} />;
 }
 
 function Comment() {
-  return <>Comment</>;
+  const classes = useFeedPostStyles()
+  const [content, setContent] = React.useState('')
+
+
+  return(
+    <div className={classes.commentContainer}>
+
+    </div>
+  )
 }
 
 export default FeedPost;
+
+
+38:16
