@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Avatar, Typography } from "@material-ui/core";
 import { defaultUser } from "../../data";
 
-function UserCard({ user = defaultUser }) {
+function UserCard({ user = defaultUser, avatarSize }) {
   const { username, name, profile_image } = user;
-  const classes = useUserCardStyles();
+  const classes = useUserCardStyles({ avatarSize });
 
   return (
     <div className={classes.wrapper}>
