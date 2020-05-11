@@ -18,14 +18,21 @@ import {
   Divider,
   TextField,
 } from "@material-ui/core";
-import FollowSuggestion from "../shared/FollowSuggestions";
 import OptionsDialog from "../shared/OptionsDialog";
 import { defaultPost } from "../../data";
+import PostSkeleton from "./PostSkeleton";
 
 function Post() {
   const classes = usePostStyles();
+  const [loading, setLoading] = React.useState(true);
   const { id, media, likes, user, caption, comments } = defaultPost;
   const [showOptionsDialog, setOptionsDialog] = React.useState(false);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 1500);
+
+  if (loading) return <PostSkeleton />;
 
   return (
     <div className={classes.postContainer}>
