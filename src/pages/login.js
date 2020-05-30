@@ -22,7 +22,7 @@ function LoginPage() {
         <article>
           <Card className={classes.card}>
             <CardHeader className={classes.cardHeader} />
-            <from>
+            <form>
               <TextField
                 fullWidth
                 variant="filled"
@@ -49,7 +49,7 @@ function LoginPage() {
               >
                 Log In
               </Button>
-              <dvi className={classes.orContainer}>
+              <div className={classes.orContainer}>
                 <div className={classes.orLine} />
                 <div>
                   <Typography varinat="body2" color="textSecondary">
@@ -57,12 +57,12 @@ function LoginPage() {
                   </Typography>
                 </div>
                 <div className={classes.orLine} />
-              </dvi>
+              </div>
               <LoginWithFacebook color="secondary" iconColor="blue" />
               <Button color="secondary" fullWidth>
                 <Typography variant="caption">Forgot password?</Typography>
               </Button>
-            </from>
+            </form>
           </Card>
           <Card className={classes.signUpCard}>
             <Typography align="right" variant="body2">
