@@ -23,7 +23,7 @@ export function getDefaultUser() {
 export const defaultPost = {
   id: uuid(),
   likes: 10,
-  caption: `<span class="">Do you know the 10 JavaScript concepts you need to learn React? 🤔⚛️👇<br>•<br>•<br>👉 Get the FREE cheatsheet to learn them now: bit.ly/10-js-tips 🔥</span>`,
+  caption: `<span class="">Do you know the 10 JavaScript concepts you need to learn React? 🤔⚛️👇<br>•<br>•<br>👉 Get the FREE cheatsheet to learn them now: https://milenkovicmilan.com 🔥</span>`,
   user: defaultUser,
   media:
     "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=847&q=80",
@@ -35,7 +35,7 @@ export function getDefaultPost() {
   return {
     id: uuid(),
     likes: 10,
-    caption: `<span class="">Do you know the 10 JavaScript concepts you need to learn React? 🤔⚛️👇<br>•<br>•<br>👉 Get the FREE cheatsheet to learn them now: bit.ly/10-js-tips 🔥</span>`,
+    caption: `<span class="">Do you know the 10 JavaScript concepts you need to learn React? 🤔⚛️👇<br>•<br>•<br>👉 Get the FREE cheatsheet to learn them now: https://milenkovicmilan.com 🔥</span>`,
     user: defaultUser,
     media:
       "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?cs=srgb&dl=apple-coffee-computer-desk-356056.jpg&fm=jpg",
@@ -66,7 +66,7 @@ export const defaultCurrentUser = {
   name: "myself",
   profile_image:
     "https://images.unsplash.com/photo-1471169723763-1ab989462fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80",
-  website: "https://react12.io",
+  website: "https://milenkovicmilan.com",
   email: "me@gmail.com",
   bio: "This is my bio",
   phone_number: "555-555-5555",
