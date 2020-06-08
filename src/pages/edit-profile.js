@@ -168,7 +168,7 @@ function EditUserInfo({ user }) {
     if (error.message.includes("users_username_key")) {
       setError({ type: "username", message: "This username is already taken" });
     } else if (error.code.includes("auth")) {
-      setError({ type: "email", massage: error.message });
+      setError({ type: "email", message: error.message });
     }
   }
 

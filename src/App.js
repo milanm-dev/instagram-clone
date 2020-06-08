@@ -24,14 +24,14 @@ export const UserContext = React.createContext();
 
 function App() {
   const { authState } = React.useContext(AuthContext);
-  const history = useHistory();
-  const location = useLocation();
-  const modal = location.state?.modal;
-  const prevLocation = React.useRef(location);
   const isAuth = authState.status === "in";
   const userId = isAuth ? authState.user.uid : null;
   const variables = { userId };
   const { data, loading } = useSubscription(ME, { variables });
+  const history = useHistory();
+  const location = useLocation();
+  const prevLocation = React.useRef(location);
+  const modal = location.state?.modal;
   // console.log({ authState });
 
   React.useEffect(() => {
