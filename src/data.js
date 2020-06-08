@@ -28,7 +28,7 @@ export const defaultPost = {
   media:
     "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=847&q=80",
   comments: [],
-  created_at: "2020-02-28T03:08:14.522421+00:00",
+  created_at: "2020-05-28T03:08:14.522421+00:00",
 };
 
 export function getDefaultPost() {
