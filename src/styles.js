@@ -803,7 +803,7 @@ export const usePostStyles = makeStyles((theme) => ({
     },
   },
   postCaption: {
-    overflowY: "scroll",
+    // overflowY: "scroll",
     paddingLeft: "24px",
     paddingRight: "24px",
     paddingTop: "5px",
