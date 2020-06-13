@@ -106,7 +106,7 @@ function Post({ postId }) {
           <Hidden xsDown>
             <div className={classes.comment}>
               <Divider />
-              <Comment postId={id}/>
+              <Comment postId={id} />
             </div>
           </Hidden>
         </div>
@@ -209,7 +209,7 @@ function LikeButton({ likes, authorId, postId }) {
   const variables = {
     postId,
     userId: currentUserId,
-    // profileId: authorId
+    profileId: authorId,
   };
 
   function handleLike() {
@@ -258,20 +258,20 @@ function SaveButton({ savedPosts, postId }) {
   return <Icon className={classes.saveIcon} onClick={onClick} />;
 }
 
-function Comment({postId}) {
+function Comment({ postId }) {
   const classes = usePostStyles();
-  const {currentUserId} = React.useContext(UserContext)
+  const { currentUserId } = React.useContext(UserContext);
   const [content, setContent] = React.useState("");
-  const [createComment] = useMutation(CREATE_COMMENT)
+  const [createComment] = useMutation(CREATE_COMMENT);
 
-
-  function handleAddComment(){
+  function handleAddComment() {
     const variables = {
-      content, 
+      content,
       postId,
-      userId: currentUserId
-    }
-    createComment({variables})
+      userId: currentUserId,
+    };
+    createComment({ variables });
+    setContent("");
   }
 
   return (
