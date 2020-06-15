@@ -1,19 +1,43 @@
 import React from "react";
 import { useProfilePictureStyles } from "../../styles";
 import { Person } from "@material-ui/icons";
+import { useMutation } from "@apollo/react-hooks";
+import handleImageUpload from "../../utils/handleImageUpload";
+import { EDIT_USER_AVATAR } from "../../graphql/mutations";
+import { UserContext } from "../../App";
 
-function ProfilePicture({
-  size,
-  image = "https://images.unsplash.com/photo-1589155396701-8d05f6b0fa15?ixlib=rb-1.2.1&auto=format&fit=crop&w=333&q=80",
-  isOwner,
-}) {
+function ProfilePicture({ size, image, isOwner }) {
+  const { currentUserId } = React.useContext(UserContext);
   const classes = useProfilePictureStyles({ size, isOwner });
+  const [img, setImg] = React.useState(image);
+  const inputRef = React.useRef();
+  const [editUserAvatar] = useMutation(EDIT_USER_AVATAR);
+
+  async function handleUpdateProfilePic(event) {
+    const url = await handleImageUpload(event.target.files[0]);
+    const variables = { id: currentUserId, profileImage: url };
+    await editUserAvatar({ variables });
+    setImg(url);
+  }
+
+  function openFileInput() {
+    inputRef.current.click();
+  }
 
   return (
     <section className={classes.section}>
+      <input
+        style={{ display: "none" }}
+        ref={inputRef}
+        type="file"
+        onChange={handleUpdateProfilePic}
+      />
       {image ? (
-        <div className={classes.wrapper}>
-          <img src={image} alt="user profile" className={classes.image} />
+        <div
+          className={classes.wrapper}
+          onClick={isOwner ? openFileInput : () => null}
+        >
+          <img src={img} alt="user profile" className={classes.image} />
         </div>
       ) : (
         <div className={classes.wrapper}>

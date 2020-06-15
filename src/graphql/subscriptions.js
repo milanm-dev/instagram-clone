@@ -9,15 +9,27 @@ export const ME = gql`
       username
       profile_image
       last_checked
-      notifications(order_by:{created_at: desc}){
+      followers {
+        user {
+          id
+          user_id
+        }
+      }
+      following {
+        user {
+          id
+          user_id
+        }
+      }
+      notifications(order_by: { created_at: desc }) {
         id
         type
         created_at
-        post{
+        post {
           id
           media
         }
-        user{
+        user {
           id
           username
           profile_image
