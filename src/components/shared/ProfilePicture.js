@@ -14,7 +14,10 @@ function ProfilePicture({ size, image, isOwner }) {
   const [editUserAvatar] = useMutation(EDIT_USER_AVATAR);
 
   async function handleUpdateProfilePic(event) {
-    const url = await handleImageUpload(event.target.files[0]);
+    const url = await handleImageUpload(
+      event.target.files[0],
+      "instagram-avatar"
+    );
     const variables = { id: currentUserId, profileImage: url };
     await editUserAvatar({ variables });
     setImg(url);
