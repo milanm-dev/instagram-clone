@@ -218,13 +218,11 @@ function LikeButton({ likes, authorId, postId }) {
   };
 
   function handleLike() {
-    // console.log("like");
     setLiked(true);
     likePost({ variables });
   }
 
   function handleUnlike() {
-    // console.log("unlike");
     setLiked(false);
     unlikePost({ variables });
   }
@@ -249,13 +247,11 @@ function SaveButton({ savedPosts, postId }) {
   const onClick = saved ? handleRemove : handleSave;
 
   function handleSave() {
-    // console.log("saved");
     setSaved(true);
     savePost({ variables });
   }
 
   function handleRemove() {
-    // console.log("removed");
     setSaved(false);
     unsavePost({ variables });
   }
@@ -311,5 +307,3 @@ function Comment({ postId }) {
 }
 
 export default Post;
-
-// 4
