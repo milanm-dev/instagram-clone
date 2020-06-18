@@ -48,7 +48,7 @@ function Post({ postId }) {
     likes_aggregate,
     user,
     saved_posts,
-    // user_id,
+    user_id,
     location,
     caption,
     comments,
@@ -113,7 +113,11 @@ function Post({ postId }) {
         </div>
       </article>
       {showOptionsDialog && (
-        <OptionsDialog onClose={() => setOptionsDialog(false)} />
+        <OptionsDialog
+          postId={id}
+          authorId={user.id}
+          onClose={() => setOptionsDialog(false)}
+        />
       )}
     </div>
   );
