@@ -18,8 +18,6 @@ function FeedSideSuggestions() {
   };
   const { data, loading } = useQuery(SUGGEST_USER, { variables });
 
-  console.log({ data });
-
   return (
     <article className={classes.article}>
       <Paper className={classes.paper}>
