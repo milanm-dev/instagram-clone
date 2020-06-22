@@ -32,7 +32,6 @@ function App() {
   const location = useLocation();
   const prevLocation = React.useRef(location);
   const modal = location.state?.modal;
-  // console.log({ authState });
 
   React.useEffect(() => {
     if (history.action !== "POP" && !modal) {
@@ -57,10 +56,11 @@ function App() {
   const currentUserId = me.id;
   const followingIds = me.following.map(({ user }) => user.id);
   const followersIds = me.followers.map(({ user }) => user.id);
+  const feedIds = [...followersIds, currentUserId];
 
   return (
     <UserContext.Provider
-      value={{ me, currentUserId, followingIds, followersIds }}
+      value={{ me, currentUserId, followingIds, followersIds, feedIds }}
     >
       <Switch location={isModalOpen ? prevLocation.current : location}>
         <Route exact path="/" component={FeedPage} />

@@ -9,12 +9,21 @@ import FeedSideSuggestions from "../components/feed/FeedSideSuggestions";
 import LoadingScreen from "../components/shared/LoadingScreen";
 import { LoadingLargeIcon } from "../icons";
 import FeedPostSkeleton from "../components/feed/FeedPostSkeleton";
+import { UserContext } from "../App";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_FEED } from "../graphql/queries";
 const FeedPost = React.lazy(() => import("../components/feed/FeedPost"));
 
 function FeedPage() {
-  const [isEndOfFeed] = React.useState(false);
   const classes = useFeedPageStyles();
-  let loading = false;
+  const { me, feedIds } = React.useContext(UserContext);
+  const [isEndOfFeed] = React.useState(false);
+  const variables = {
+    feedIds,
+    limit: 2,
+  };
+  const { data, loading } = useQuery(GET_FEED, { variables });
+
   if (loading) return <LoadingScreen />;
 
   return (
@@ -22,19 +31,17 @@ function FeedPage() {
       <div className={classes.container}>
         {/* Feed posts */}
         <div>
-          {Array.from({ length: 5 }, () => getDefaultPost()).map(
-            (post, index) => (
-              <React.Suspense key={post.id} fallback={<FeedPostSkeleton />}>
-                <FeedPost index={index} post={post} />
-              </React.Suspense>
-            )
-          )}
+          {data.posts.map((post, index) => (
+            <React.Suspense key={post.id} fallback={<FeedPostSkeleton />}>
+              <FeedPost index={index} post={post} />
+            </React.Suspense>
+          ))}
         </div>
         {/* sidebar */}
         <Hidden smDown>
           <div className={classes.sidebarContainer}>
             <div className={classes.sidebarWrapper}>
-              <UserCard avatarSize={55} />
+              <UserCard user={me} avatarSize={50} />
               <FeedSideSuggestions />
             </div>
           </div>
