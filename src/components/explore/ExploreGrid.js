@@ -10,9 +10,9 @@ import { UserContext } from "../../App";
 
 function ExploreGrid() {
   const classes = useExploreGridStyles();
-  const { followingIds } = React.useContext(UserContext);
+  const { feedIds } = React.useContext(UserContext);
   const variables = {
-    followingIds,
+    feedIds,
   };
   const { data, loading } = useQuery(EXPLORE_POSTS, { variables });
 
