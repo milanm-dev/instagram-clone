@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useFollowButtonStyles } from "../../styles";
 import { Button } from "@material-ui/core";
 import { UserContext } from "../../App";
