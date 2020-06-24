@@ -110,5 +110,3 @@ const AddPostDialog = ({ media, handleClose }) => {
 };
 
 export default AddPostDialog;
-
-// 12:40
