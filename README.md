@@ -1,1 +1,1 @@
-I've played around with React.js, Apollo, GraphQL, Hasura, Material-UI, firebase.
+React.js, Apollo, GraphQL, Hasura, Material-UI, firebase.
